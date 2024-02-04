@@ -1,42 +1,9 @@
 from Dtreefunc import *
 
-md_sepal_length = [5.84 - 0.83, 5.84 + 0.83]
-md_sepal_width = [3.05 - 0.43, 3.05 + 0.43]
-md_petal_length = [3.76 - 1.76, 3.76 + 1.76]
-md_petal_width = [1.20 - 0.76, 1.20 + 0.76]
-
 sl_mapping = {'sepal_length_L': 0, 'sepal_length_M': 1, 'sepal_length_H': 2}
 sw_mapping = {'sepal_width_L': 0, 'sepal_width_M': 1, 'sepal_width_H': 2}
 pl_mapping = {'petal_length_L': 0, 'petal_length_M': 1, 'petal_length_H': 2}
 pw_mapping = {'petal_width_L': 0, 'petal_width_M': 1, 'petal_width_H': 2}
-
-
-def preprocessing_data():
-    f1 = open("Iris/iris.data", "r")
-    f2 = open("Iris/iris.data.ver_preprocess.txt", "w")
-
-    x = f1.readlines()
-
-    for i in range(0, len(x)):
-        data = x[i].split(",")
-
-        num = float(data[0])
-        sepal_length_type = "sepal_length_L" if num < md_sepal_length[0] \
-            else ("sepal_length_M" if md_sepal_length[0] <= num <= md_sepal_length[1] else "sepal_length_H")
-
-        num = float(data[1])
-        sepal_width_type = "sepal_width_L" if num < md_sepal_width[0] \
-            else ("sepal_width_M" if md_sepal_width[0] <= num <= md_sepal_width[1] else "sepal_width_H")
-
-        num = float(data[2])
-        petal_length_type = "petal_length_L" if num < md_petal_length[0] \
-            else ("petal_length_M" if md_petal_length[0] <= num <= md_petal_length[1] else "petal_length_H")
-
-        num = float(data[3])
-        petal_width_type = "petal_width_L" if num < md_petal_width[0] \
-            else ("petal_width_M" if md_petal_width[0] <= num <= md_petal_width[1] else "petal_width_H")
-
-        f2.write(f"{sepal_length_type},{sepal_width_type},{petal_length_type},{petal_width_type},{data[4]}")
 
 
 def calculate_information_gain_for_iris():
@@ -153,21 +120,6 @@ def calculate_information_gain_for_iris():
     print("***สิ้นสุดการคำนวณครั้งที 1***\n")
 
 
-def write_text_seconds_node():
-    f1 = open("Iris/iris.data.ver_preprocess.txt", "r")
-    f2 = open("Iris/petal_length_middle/middle.txt", "w")
-
-    x = f1.readlines()
-
-    for i in range(0, len(x)):
-        data = x[i].split(",")
-
-        if data[2] == 'petal_length_M':
-            del data[2]
-            result = ",".join(data[:2] + data[2:])
-            f2.write(result)
-
-
 def secondary_information_gain():
     f = open("Iris/petal_length_middle/middle.txt", "r")
     x = f.readlines()
@@ -260,21 +212,6 @@ def secondary_information_gain():
     print("***สิ้นสุดการคำนวณครั้งที 2***\n")
 
 
-def write_text_third_node():
-    f1 = open("Iris/petal_length_middle/middle.txt", "r")
-    f2 = open("Iris/petal_length_middle/petal_width_middle/middle.txt", "w")
-
-    x = f1.readlines()
-
-    for i in range(0, len(x)):
-        data = x[i].split(",")
-
-        if data[2] == 'petal_width_M':
-            del data[2]
-            result = ",".join(data[:2] + data[2:])
-            f2.write(result)
-
-
 def third_information_gain():
     f = open("Iris/petal_length_middle/petal_width_middle/middle.txt", "r")
     x = f.readlines()
@@ -349,21 +286,6 @@ def third_information_gain():
     print("***สิ้นสุดการคำนวณครั้งที 3***\n")
 
 
-def write_text_fourth_node_left():
-    f1 = open("Iris/petal_length_middle/petal_width_middle/middle.txt", "r")
-    f2 = open("Iris/petal_length_middle/petal_width_middle/sepal_length_left/left.txt", "w")
-
-    x = f1.readlines()
-
-    for i in range(0, len(x)):
-        data = x[i].split(",")
-
-        if data[0] == 'sepal_length_L':
-            del data[0]
-            result = ",".join(data)
-            f2.write(result)
-
-
 def fourth_left_information_gain():
     f = open("Iris/petal_length_middle/petal_width_middle/sepal_length_left/left.txt", "r")
     x = f.readlines()
@@ -412,21 +334,6 @@ def fourth_left_information_gain():
     gain_sepal_width = info_d - info_sepal_width_d
     print("Gain (sepal_width) is %5.3f" % gain_sepal_width)
     print("***สิ้นสุดการคำนวณครั้งที 4***\n")
-
-
-def write_text_fourth_node_middle():
-    f1 = open("Iris/petal_length_middle/petal_width_middle/middle.txt", "r")
-    f2 = open("Iris/petal_length_middle/petal_width_middle/sepal_length_middle/middle.txt", "w")
-
-    x = f1.readlines()
-
-    for i in range(0, len(x)):
-        data = x[i].split(",")
-
-        if data[0] == 'sepal_length_M':
-            del data[0]
-            result = ",".join(data)
-            f2.write(result)
 
 
 def fourth_middle_information_gain():
