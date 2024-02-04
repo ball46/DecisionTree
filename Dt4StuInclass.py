@@ -102,6 +102,7 @@ def calculate_information_gain_for_iris():
     info_petal_length_d = inforD(petal_length, [petal_length_ci[0][3], petal_length_ci[1][3], petal_length_ci[2][3]])
     info_petal_width_d = inforD(petal_width, [petal_width_ci[0][3], petal_width_ci[1][3], petal_width_ci[2][3]])
 
+    print("***การคำนวณครั้งที่ 1***")
     print("Sepal length count is", sepal_length)
     print("Sepal width count is", sepal_width)
     print("Petal length count is", petal_length)
@@ -149,6 +150,7 @@ def calculate_information_gain_for_iris():
     max_gain = max(result_all)
     pos = np.argmax(result_all)
     print("\nmax gain of attb is %5.3f" % max_gain, "position is", pos)
+    print("***สิ้นสุดการคำนวณครั้งที 1***\n")
 
 
 def write_text_seconds_node():
@@ -216,6 +218,7 @@ def secondary_information_gain():
     info_sepal_width_d = inforD(sepal_width, [sepal_width_ci[0][2], sepal_width_ci[1][2], sepal_width_ci[2][2]])
     info_petal_width_d = inforD(petal_width, [petal_width_ci[0][2], petal_width_ci[1][2], petal_width_ci[2][2]])
 
+    print("***การคำนวณครั้งที่ 2***")
     print("Sepal length count is", sepal_length)
     print("Sepal width count is", sepal_width)
     print("Petal width count is", petal_width)
@@ -254,6 +257,7 @@ def secondary_information_gain():
     max_gain = max(result_all)
     pos = np.argmax(result_all)
     print("\nmax gain of attb is %5.3f" % max_gain, "position is", pos)
+    print("***สิ้นสุดการคำนวณครั้งที 2***\n")
 
 
 def write_text_third_node():
@@ -312,6 +316,7 @@ def third_information_gain():
                                                 sepal_length_ci[1][2], sepal_length_ci[2][2]])
     info_sepal_width_d = inforD(sepal_width, [sepal_width_ci[0][2], sepal_width_ci[1][2], sepal_width_ci[2][2]])
 
+    print("***การคำนวณครั้งที่ 3***")
     print("Sepal length count is", sepal_length)
     print("Sepal width count is", sepal_width)
     print("Iris computer count is", iris)
@@ -341,6 +346,7 @@ def third_information_gain():
     max_gain = max(result_all)
     pos = np.argmax(result_all)
     print("\nmax gain of attb is %5.3f" % max_gain, "position is", pos)
+    print("***สิ้นสุดการคำนวณครั้งที 3***\n")
 
 
 def write_text_fourth_node_left():
@@ -389,6 +395,7 @@ def fourth_left_information_gain():
 
     info_sepal_width_d = inforD(sepal_width, [sepal_width_ci[0][2], sepal_width_ci[1][2], sepal_width_ci[2][2]])
 
+    print("***การคำนวณครั้งที่ 4 left node***")
     print("Sepal width count is", sepal_width)
     print("Iris computer count is", iris)
 
@@ -404,6 +411,7 @@ def fourth_left_information_gain():
     print("\n***Gain results of all dataset***")
     gain_sepal_width = info_d - info_sepal_width_d
     print("Gain (sepal_width) is %5.3f" % gain_sepal_width)
+    print("***สิ้นสุดการคำนวณครั้งที 4***\n")
 
 
 def write_text_fourth_node_middle():
@@ -452,6 +460,7 @@ def fourth_middle_information_gain():
 
     info_sepal_width_d = inforD(sepal_width, [sepal_width_ci[0][2], sepal_width_ci[1][2], sepal_width_ci[2][2]])
 
+    print("***การคำนวณครั้งที่ 4 middle node***")
     print("Sepal width count is", sepal_width)
     print("Iris computer count is", iris)
 
@@ -467,3 +476,4 @@ def fourth_middle_information_gain():
     print("\n***Gain results of all dataset***")
     gain_sepal_width = info_d - info_sepal_width_d
     print("Gain (sepal_width) is %5.3f" % gain_sepal_width)
+    print("***สิ้นสุดการคำนวณครั้งที 4***\n")
