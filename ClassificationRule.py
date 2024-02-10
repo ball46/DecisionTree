@@ -1,8 +1,8 @@
 import numpy as np
 
 
-def classification():
-    f = open("Iris/iris.data.ver_preprocess.txt", "r")
+def classification(pathfile):
+    f = open(pathfile, "r")
     x = f.readlines()
     result = []
     choice = ["Iris-setosa", "Iris-versicolor", "Iris-virginica"]
@@ -10,7 +10,7 @@ def classification():
     iris_type = np.zeros(3)
 
     for i in range(0, len(x)):
-        data = x[i].split(",")
+        data = x[i].rstrip("\n").split(",")
         if data[2] == "petal_length_L":
             result.append(choice[0])
             iris_type[0] += 1
@@ -37,12 +37,11 @@ def classification():
             result.append(choice[2])
             iris_type[2] += 1
 
-        ans = data[4].strip('\n')
-        if result[-1] == ans:
+        if result[-1] == data[4]:
             true_false[0] += 1
         else:
+            print("Line wrong is", i + 1)
             true_false[1] += 1
-    print(result)
     print(iris_type)
     print(true_false)
-    print(f"Accuracy value = {true_false[0]/sum(true_false)}")
+    print(f"Accuracy value = {true_false[0]/sum(true_false)}\n")

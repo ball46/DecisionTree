@@ -1,58 +1,21 @@
-def write_text_seconds_node():
-    f1 = open("Iris/iris.data.ver_preprocess.txt", "r")
-    f2 = open("Iris/petal_length_middle/middle.txt", "w")
+def write_file(read, write, choice):
+    f1 = open(read, "r")
+    f2 = open(write, "w")
 
     x = f1.readlines()
+    c = 0
 
-    for i in range(0, len(x)):
+    for i in range(len(x)):
         data = x[i].split(",")
+        if i == 0:
+            data_type = choice[:-2]
+            for j in range(len(data)):
+                name = data[j][:-2]
+                if name == data_type:
+                    c = j
+                    break
 
-        if data[2] == 'petal_length_M':
-            del data[2]
-            result = ",".join(data[:2] + data[2:])
-            f2.write(result)
-
-
-def write_text_third_node():
-    f1 = open("Iris/petal_length_middle/middle.txt", "r")
-    f2 = open("Iris/petal_length_middle/petal_width_middle/middle.txt", "w")
-
-    x = f1.readlines()
-
-    for i in range(0, len(x)):
-        data = x[i].split(",")
-
-        if data[2] == 'petal_width_M':
-            del data[2]
-            result = ",".join(data[:2] + data[2:])
-            f2.write(result)
-
-
-def write_text_fourth_node_left():
-    f1 = open("Iris/petal_length_middle/petal_width_middle/middle.txt", "r")
-    f2 = open("Iris/petal_length_middle/petal_width_middle/sepal_length_left/left.txt", "w")
-
-    x = f1.readlines()
-
-    for i in range(0, len(x)):
-        data = x[i].split(",")
-
-        if data[0] == 'sepal_length_L':
-            del data[0]
-            result = ",".join(data)
-            f2.write(result)
-
-
-def write_text_fourth_node_middle():
-    f1 = open("Iris/petal_length_middle/petal_width_middle/middle.txt", "r")
-    f2 = open("Iris/petal_length_middle/petal_width_middle/sepal_length_middle/middle.txt", "w")
-
-    x = f1.readlines()
-
-    for i in range(0, len(x)):
-        data = x[i].split(",")
-
-        if data[0] == 'sepal_length_M':
-            del data[0]
-            result = ",".join(data)
+        if data[c] == choice:
+            del data[c]
+            result = ",".join(data[:c] + data[c:])
             f2.write(result)

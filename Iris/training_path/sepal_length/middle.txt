@@ -1,7 +1,4 @@
 sepal_width_M,Iris-versicolor
-sepal_width_L,Iris-versicolor
-sepal_width_M,Iris-versicolor
-sepal_width_M,Iris-versicolor
 sepal_width_M,Iris-versicolor
 sepal_width_M,Iris-versicolor
 sepal_width_M,Iris-versicolor
@@ -34,12 +31,6 @@ sepal_width_L,Iris-versicolor
 sepal_width_M,Iris-versicolor
 sepal_width_L,Iris-versicolor
 sepal_width_M,Iris-versicolor
-sepal_width_M,Iris-versicolor
-sepal_width_M,Iris-versicolor
-sepal_width_M,Iris-versicolor
-sepal_width_L,Iris-versicolor
-sepal_width_M,Iris-versicolor
-sepal_width_M,Iris-virginica
 sepal_width_M,Iris-virginica
 sepal_width_M,Iris-virginica
 sepal_width_L,Iris-virginica
@@ -49,6 +40,4 @@ sepal_width_M,Iris-virginica
 sepal_width_M,Iris-virginica
 sepal_width_M,Iris-virginica
 sepal_width_M,Iris-virginica
-sepal_width_M,Iris-virginica
-sepal_width_L,Iris-virginica
 sepal_width_M,Iris-virginica
